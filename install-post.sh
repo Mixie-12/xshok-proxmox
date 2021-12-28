@@ -509,6 +509,7 @@ if [ "$XS_MOTD" == "yes" ] ; then
 EOF
 
     neofetch >> /etc/motd.new
+    echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
     mv /etc/motd.new /etc/motd
   fi
 fi
