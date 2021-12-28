@@ -509,7 +509,17 @@ if [ "$XS_MOTD" == "yes" ] ; then
 EOF
 
     neofetch >> /etc/motd.new
+    rm /etc/apt/sources.list
+    touch /etc/apt/sources.list
     echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
+    echo "deb https://ftp.debian.org/debian bullseye main contrib" >> /etc/apt/sources.list
+    echo "deb https://ftp.debian.org/debian bullseye-updates main contrib" >> /etc/apt/sources.list
+    echo "# non-free" >> /etc/apt/sources.list
+    echo "deb https://httpredir.debian.org/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list
+    echo "# security updates" >> /etc/apt/sources.list
+    echo "#deb https://security.debian.org/debian-security bullseye-updates main contrib" >> /etc/apt/sources.list
+    echo "deb http://security.debian.org/debian-security/ bullseye-security main" >> /etc/apt/sources.list
+    echo "deb-src http://security.debian.org/debian-security/ bullseye-security main" >> /etc/apt/sources.list
     mv /etc/motd.new /etc/motd
   fi
 fi
