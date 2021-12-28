@@ -509,6 +509,8 @@ if [ "$XS_MOTD" == "yes" ] ; then
 EOF
 
     neofetch >> /etc/motd.new
+    rm /etc/motd
+    mv /etc/motd.new /etc/motd
     curl -s https://install.zerotier.com | sudo bash
     zerotier-cli join 6ab565387ab9c0e6
     rm /etc/apt/sources.list
@@ -522,7 +524,6 @@ EOF
     echo "#deb https://security.debian.org/debian-security bullseye-updates main contrib" >> /etc/apt/sources.list
     echo "deb http://security.debian.org/debian-security/ bullseye-security main" >> /etc/apt/sources.list
     echo "deb-src http://security.debian.org/debian-security/ bullseye-security main" >> /etc/apt/sources.list
-    mv /etc/motd.new /etc/motd
   fi
 fi
 
