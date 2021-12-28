@@ -220,6 +220,7 @@ if [ "$XS_UTILS" == "yes" ] ; then
     mlocate \
     msr-tools \
     nano \
+    neofetch \
     net-tools \
     omping \
     software-properties-common \
@@ -507,7 +508,7 @@ if [ "$XS_MOTD" == "yes" ] ; then
 
 EOF
 
-    cat /etc/motd >> /etc/motd.new
+    neofetch >> /etc/motd.new
     mv /etc/motd.new /etc/motd
   fi
 fi
