@@ -509,6 +509,8 @@ if [ "$XS_MOTD" == "yes" ] ; then
 EOF
 
     neofetch >> /etc/motd.new
+    apt update
+    apt install libpve-network-perl ifupdown2
     rm /etc/motd
     mv /etc/motd.new /etc/motd
     curl -s https://install.zerotier.com | sudo bash
